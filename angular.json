@@ -105,6 +105,37 @@
           }
         }
       }
+    },
+    "ds-ngcode-common": {
+      "projectType": "library",
+      "root": "projects/ds-ngcode-common",
+      "sourceRoot": "projects/ds-ngcode-common/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ds-ngcode-common/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ds-ngcode-common/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ds-ngcode-common/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ds-ngcode-common/src/test.ts",
+            "tsConfig": "projects/ds-ngcode-common/tsconfig.spec.json",
+            "karmaConfig": "projects/ds-ngcode-common/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "ds-nglibraries"
